@@ -6,7 +6,7 @@ var bodyParser = require('body-parser');//
     
 let getContactos = (req, res) =>
 {      
-    console.log("llegue a leer");
+    console.log("Lista de usuarios");
     //Listar resultados
     Contactos.find()
     .then
@@ -24,7 +24,7 @@ let getContactosById = (req, res) =>
 {      
     console.log("llegue a leer con filtro");
     //Obtener id busqueda
-    let idBusqueda = {dni: req.body.dniBuscado};
+    let idBusqueda = {idUsuario: req.body.dniBuscado};
     console.log(idBusqueda);
     //Listar resultados
     Contactos.find(idBusqueda)//select=find
@@ -90,7 +90,7 @@ let deleteContacto = (req,res)=>
     )       
    
 }
- //+++++++++++++++++++++++++++++COMENTARIOS++++++++++++++++++++++++++++++++++++++++++++++++++++
+ //+++++++++++++++++++++++++++++COMENTARIOS++++++++++++++++++++++++++++++++++++++++++++++++++
 let getComentarios = (req, res) =>
 {      
     console.log("llegue a leer");
@@ -105,7 +105,7 @@ let getComentarios = (req, res) =>
         },
         (err)=>{console.log(err);}
     )       
-};
+};//obtener todos los
 
 let getComentariosByIdUasurio = (req, res) =>
 {      
@@ -149,23 +149,23 @@ let insertComentario = (req,res) =>
     ) 
 }
 
-let updateComentario = (req, res) => 
+let deleteComentario = (req,res)=>
 {
-    let id = { dni : req.body.Buscado};
-    let newContacto = {nombre: req.body.newData.nombre};
-    console.log(id);
-    console.log(newContacto);
-    Contactos.findOneAndUpdate(id,newContacto,{new:true},function(err, todo)
-    {
-        (err)=>{console.log(err);}
-        (newContacto)=>
+    let id = { idComentario : req.body.idComentarioEliminado};
+    Comentarios.deleteOne(id)
+    .then
+    (
+        (resultado)=>
         {
-            res.send(newContacto); //devuelvo resultado query       
-        };
-    
-    });
+            res.send(resultado); //devuelvo resultado        
+        },
+        (err)=>{console.log(err);}
+    )       
+   
 }
+
+
 //++++++++++++++++++++++Guardar puntuacion++++++++++++++++++++++++
 
-module.exports = {getContactos,insertContacto,updateContacto,deleteContacto,getContactosById,getComentarios,getComentariosByIdUasurio,insertComentario,updateComentario};
+module.exports = {getContactos,insertContacto,updateContacto,deleteContacto,getContactosById,getComentarios,getComentariosByIdUasurio,insertComentario,deleteComentario};
 
