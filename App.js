@@ -10,7 +10,7 @@ var app = express();
 //var urlBD = 'mongodb://localhost/test';
 //var urlBD = "mongodb+srv://test:test1234@cluster0-apezn.mongodb.net/test?retryWrites=true";
 //var urlBD = "mongodb+srv://test:test1234@app-mr-8jtkd.mongodb.net/test?retryWrites=true&w=majority";
-var urlBD = "mongodb+srv://genaro:<password>@app-mr-8jtkd.mongodb.net/test?retryWrites=true&w=majority";
+var urlBD = "mongodb+srv://test:test1234@app-mr-8jtkd.mongodb.net/Prueba?retryWrites=true&w=majority";
 //opciones conexion
 var opts = {useNewUrlParser : true, connectTimeoutMS:20000};
 //importo driver
@@ -45,7 +45,7 @@ var port = process.env.PORT || 8080;
 app.get('/', (req, res) => res.send('Hello World with Express in Aplicaciones Interactivas'));
 
 // Use Api routes in the App
-app.use('/apiAgenda', apiRoutes);
+app.use('/peliculas', apiRoutes);
 
 // Launch app to listen to specified port
 app.listen(port, function () {

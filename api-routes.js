@@ -15,45 +15,45 @@ router.get('/', function (req, res)
 });
 
 //EndPoint para leer toda la base
-router.get('/leerAgenda',function(req,res)
+router.get('/Todos',function(req,res)
 {
     console.log("leer");
     apiController.getContactos(req,res);
 });
 //EndPoint para leer con filtro
-router.post('/leerAgenda/?idBusqueda',function(req,res)
+router.post('/perfil/?idBusqueda',function(req,res)
 {
     console.log("leer con filtro");
     apiController.getContactosById(req,res);
 });
 //EndPoint para insertar en la BD
-router.post('/insertContacto/Contacto',function(req,res)
+router.post('/insertUsuario/Contacto',function(req,res)
 {
     console.log(req.body);
     apiController.insertContacto(req,res);
 });
 
 //EndPoint para modificar en la BD
-router.post('/updateContacto/Contacto',function(req,res)
+router.post('/updateUsuario/Contacto',function(req,res)
 {
     apiController.updateContacto(req,res);
 });
 
 //EndPoint para eliminar en la BD
-router.delete('/deleteContacto/Contacto',function(req,res)
+router.delete('/deleteUsuario/Contacto',function(req,res)
 {
     apiController.deleteContacto(req,res);
 });
 
 //+++++++++++++++++comentarios++++++++++++++++
 //leer todos los comentarios
-router.get('/leerAgenda',function(req,res)
+router.get('/verTodos',function(req,res)
 {
     console.log("leer Comentarios en Gral");
     apiController.getComentarios(req,res);
 });
 //leer comentario por id.
-router.post('/leerAgenda/?idBusqueda',function(req,res)
+router.post('/VerComentarioUsuario/?idBusqueda',function(req,res)
 {
     console.log("leer con filtro");
     apiController.getComentariosByIdUasurio(req,res);

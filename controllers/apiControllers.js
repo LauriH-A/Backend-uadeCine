@@ -43,11 +43,11 @@ let insertContacto = (req,res) =>
 {
     console.log(req.body);
     var newContacto = Contactos({
-        nombre: req.body.nombre,
-        domicilio: req.body.domicilio,
-        cumple: req.body.cumple,
         dni: req.body.dni,
+        nombre: req.body.nombre,
+        apellido:req.body.apellido,
         mail: req.body.mail
+      
     });
     newContacto.save().
     then
